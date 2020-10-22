@@ -1,11 +1,12 @@
 import React from 'react'
 import Pizzicato from 'pizzicato'
 
+console.log(Pizzicato)
+
 const Metronome = () => {
-    console.log(Pizzicato)
 
     return (
-        <h1 className="placeholder">placeholder</h1>
+        <h1 className="placeholder"></h1>
     )
 }
 
