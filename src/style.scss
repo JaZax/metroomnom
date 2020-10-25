@@ -1,4 +1,14 @@
 body{
     margin: 0;
     padding: 0;
+    background: black;
+    color: white;
+    #App{
+        border: solid red;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 }

@@ -6,7 +6,7 @@ import Metronome from './components/metronome'
 
 const App = () => {
 
-    let [tempo, changeTempo] = useState(50)
+    let [tempo, changeTempo] = useState(100)
 
     window.onload = () => {
         document.getElementById('inputTempo').addEventListener('input', ()=>{
@@ -15,15 +15,13 @@ const App = () => {
     }
 
     return (
-        <div className="App" >
-            
-            <input type="range" id="inputTempo"/>
-
+        <>
             <h1>{tempo}</h1>
+            <input type="range" id="inputTempo" min="1" max="300"/>
 
-        <Metronome></Metronome>
+        <Metronome tempoVal={tempo}></Metronome>
 
-        </div>
+        </>
     )
 }
 
