@@ -5,7 +5,7 @@ let sound = new Pizzicato.Sound({
     source: 'wave',
     options: {
         type: 'square',
-        frequency: 1000
+        frequency: 200
     }
 })
 
@@ -13,7 +13,6 @@ class Metronome extends React.Component {
     constructor(props){
         super(props)
 
-        this.state = {tempo: this.props.tempoVal}
         this.intervals = []
     }
 
@@ -25,10 +24,16 @@ class Metronome extends React.Component {
 
         this.intervals.push(setInterval(()=>{
             console.log('joł')
+            sound.play()
+
+            setTimeout(()=>{
+                sound.stop()
+            }, 100)
+
         }, this.props.tempoVal))
 
         return(
-            <h1>{this.state.tempo}</h1>
+            <h1>{this.props.tempoVal}</h1>
         )
     }
 }
