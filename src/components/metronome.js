@@ -30,7 +30,7 @@ class Metronome extends React.Component {
                 sound.stop()
             }, 100)
 
-        }, this.props.tempoVal))
+        }, 60000 / this.props.tempoVal))
 
         return(
             <h1>{this.props.tempoVal}</h1>
