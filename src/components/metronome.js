@@ -1,37 +1,36 @@
 import React from 'react'
 import Pizzicato from 'pizzicato'
 
-console.log(Pizzicato)
-
 let sound = new Pizzicato.Sound({
     source: 'wave',
     options: {
-        type: 'sine',
+        type: 'square',
         frequency: 1000
     }
 })
 
-const Metronome = (props) => {
+class Metronome extends React.Component {
+    constructor(props){
+        super(props)
 
-    let tempo = props.tempoVal
-
-    let click = ()=>{
-
-        console.log('elo')
-        sound.play()
-
-        setTimeout(()=>{
-            sound.stop()
-        }, 10)
-
-        setTimeout(click, tempo)
+        this.state = {tempo: this.props.tempoVal}
+        this.intervals = []
     }
 
-    setTimeout(click, tempo)
+    render(){
+        
+        for(let i = 0; i < this.intervals.length; i++){
+            window.clearInterval(this.intervals[i])
+        }
 
-    return (
-        <h1 className="placeholder">{tempo}</h1>
-    )
+        this.intervals.push(setInterval(()=>{
+            console.log('joł')
+        }, this.props.tempoVal))
+
+        return(
+            <h1>{this.state.tempo}</h1>
+        )
+    }
 }
 
 export default Metronome

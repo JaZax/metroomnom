@@ -17,9 +17,9 @@ const App = () => {
     return (
         <>
             <h1>{tempo}</h1>
-            <input type="range" id="inputTempo" min="1" max="300"/>
+            <input type="range" id="inputTempo" min="1" max="1000"/>
 
-        <Metronome tempoVal={tempo}></Metronome>
+            <Metronome tempoVal={tempo}></Metronome>
 
         </>
     )
