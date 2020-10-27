@@ -4,8 +4,8 @@ import Pizzicato from 'pizzicato'
 let sound = new Pizzicato.Sound({
     source: 'wave',
     options: {
-        type: 'square',
-        frequency: 200
+        type: 'triangle',
+        frequency: 500,
     }
 })
 
@@ -23,7 +23,6 @@ class Metronome extends React.Component {
         }
 
         this.intervals.push(setInterval(()=>{
-            console.log('joł')
             sound.play()
 
             setTimeout(()=>{
@@ -32,9 +31,7 @@ class Metronome extends React.Component {
 
         }, 60000 / this.props.tempoVal))
 
-        return(
-            <h1>{this.props.tempoVal}</h1>
-        )
+        return(true)
     }
 }
 

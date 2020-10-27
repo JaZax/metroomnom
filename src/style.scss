@@ -1,14 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+$darkPurple: #2D1E2F;
+$honeyYellow: #F7B32B;
+
 body{
     margin: 0;
     padding: 0;
-    background: black;
-    color: white;
+    background: $darkPurple;
+    color: $honeyYellow;
     #App{
-        border: solid red;
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
+
+        #left{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 50%;
+            #inputTempoBox{
+                text-align: center;
+                width: 65%;
+                border: none;
+                background: transparent;
+                color: $honeyYellow;
+                font-size: 300px;
+                font-family: 'Montserrat', sans-serif;
+            }
+        }
+
+        #right{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 50%;
+        }
     }
 }

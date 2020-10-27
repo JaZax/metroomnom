@@ -11,13 +11,29 @@ const App = () => {
     window.onload = () => {
         document.getElementById('inputTempo').addEventListener('input', ()=>{
             changeTempo(inputTempo.value)
+            document.getElementById('inputTempoBox').value = document.getElementById('inputTempo').value
+        })
+
+        window.addEventListener('keydown', (e)=>{
+            if(e.key == 'Enter'){
+                document.getElementById('inputTempo').value = document.getElementById('inputTempoBox').value
+                changeTempo(inputTempo.value)
+            }
         })
     }
 
+    //document.getElementById('inputTempoBox').value = document.getElementById('inputTempo').value
+
     return (
         <>
-            <h1>{tempo}</h1>
-            <input type="range" id="inputTempo" min="1" max="1000"/>
+            
+            <div id="left">
+                <input type="number" id="inputTempoBox"/>
+            </div>
+
+            <div id="right">
+                <input type="range" id="inputTempo" min="1" max="400"/>
+            </div>
 
             <Metronome tempoVal={tempo}></Metronome>
 
