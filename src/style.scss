@@ -28,15 +28,30 @@ body{
                 color: $honeyYellow;
                 font-size: 300px;
                 font-family: 'Montserrat', sans-serif;
+                &:focus{   
+                    outline: none;
+                };
             }
         }
 
         #right{
+            background: $honeyYellow;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
             width: 50%;
+            input[type="range"]{
+                width: 40%;
+                #shadow-root{
+                    #thumb{background: red;}
+                    
+                }
+                &::-webkit-slider-runnable-track{
+                    background: $darkPurple;
+                    height: 25vh;
+                }
+            }
         }
     }
 }
