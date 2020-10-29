@@ -9,29 +9,39 @@ const App = () => {
     let [tempo, changeTempo] = useState(100)
 
     window.onload = () => {
-        document.getElementById('inputTempoBox').value = tempo
-        /*
-        document.getElementById('inputTempo').addEventListener('input', ()=>{
-            changeTempo(inputTempo.value)
-            document.getElementById('inputTempoBox').value = document.getElementById('inputTempo').value
+        const inputTempoBox = document.getElementById('inputTempoBox')
+        const right = document.getElementById('right')
+
+        let tempoFromInput
+        let reversedTempo
+
+        inputTempoBox.value = tempo
+
+        right.addEventListener('mousedown', (e)=>{
+            tempoFromInput = Math.floor(e.clientY / 2) + 1
+            let rightHeight = right.offsetHeight / 2 + 1
+
+            let forReverse = []
+
+            for(let i = rightHeight; i > 0; i--){
+                forReverse.push(i)
+            }
+
+            reversedTempo = Math.floor(forReverse[tempoFromInput])
+
+            console.log(reversedTempo)
+
+            changeTempo(reversedTempo)
+            inputTempoBox.value = reversedTempo
         })
-        */
 
-        document.getElementById('right').addEventListener('click', (e)=>{
-            console.log(e.clientY)
-
-            changeTempo(e.clientY)
-            document.getElementById('inputTempoBox').value = e.clientY
+        inputTempoBox.addEventListener('input', ()=>{
+            if(inputTempoBox.value > 0){
+                changeTempo(inputTempoBox.value)
+                console.log(reversedTempo)
+            }
         })
-
-        document.getElementById('inputTempoBox').addEventListener('input', ()=>{
-            //document.getElementById('inputTempo').value = document.getElementById('inputTempoBox').value
-            //changeTempo(document.getElementById('inputTempoBox').value)
-        })
-
     }
-
-    //document.getElementById('inputTempoBox').value = document.getElementById('inputTempo').value
 
     return (
         <>
