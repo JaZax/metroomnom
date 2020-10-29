@@ -39,21 +39,15 @@ body{
 
         #right{
             background: $honeyYellow;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             height: 100vh;
             width: 50%;
-            input[type="range"]{
-                width: 40%;
-                #shadow-root{
-                    #thumb{background: red;}
-                    
-                }
-                &::-webkit-slider-runnable-track{
-                    background: $darkPurple;
-                    height: 25vh;
-                }
+            position: relative;
+            #weirdSlider{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 50%;
+                background: $darkerPurple;
             }
         }
     }

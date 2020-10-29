@@ -11,6 +11,7 @@ const App = () => {
     window.onload = () => {
         const inputTempoBox = document.getElementById('inputTempoBox')
         const right = document.getElementById('right')
+        const weirdSlider = document.getElementById('weirdSlider')
 
         let tempoFromInput
         let reversedTempo
@@ -22,12 +23,14 @@ const App = () => {
             let rightHeight = right.offsetHeight / 2 + 1
 
             let forReverse = []
-
+        
             for(let i = rightHeight; i > 0; i--){
                 forReverse.push(i)
             }
 
             reversedTempo = Math.floor(forReverse[tempoFromInput])
+
+            weirdSlider.style.height = (reversedTempo * 2) + 1 + 'px'
 
             console.log(reversedTempo)
 
@@ -51,8 +54,7 @@ const App = () => {
             </div>
 
             <div id="right">
-                {//<input type="range" id="inputTempo" min="1" max="500"/>
-                }
+                <div id="weirdSlider"></div>
             </div>
 
             <Metronome tempoVal={tempo}></Metronome>
