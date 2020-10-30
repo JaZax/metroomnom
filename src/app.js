@@ -43,9 +43,6 @@ const App = () => {
 
         right.addEventListener('mousedown', (e)=>{
             clicked = true
-            /*
-            
-             */
         })
 
         right.addEventListener('mouseup', ()=>{
@@ -54,9 +51,10 @@ const App = () => {
        
 
         inputTempoBox.addEventListener('input', ()=>{
+            
             if(inputTempoBox.value > 0){
                 changeTempo(inputTempoBox.value)
-                //weirdSlider.style.height = (reversedTempo * 2) + 1 + 'px'
+                weirdSlider.style.height = (inputTempoBox.value * 2) + 1 + 'px'
             }
         })
     }
@@ -65,10 +63,13 @@ const App = () => {
         <>
         
             <div id="left">
-                <input type="number" id="inputTempoBox" min="1" max="500"/>
+                <div id="inputWrap">
+                    <input type="number" id="inputTempoBox" min="1" max="500"/>
+                </div>
             </div>
 
             <div id="right">
+                <div id="header">change BPM here</div>
                 <div id="weirdSlider"></div>
             </div>
 
