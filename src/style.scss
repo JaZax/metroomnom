@@ -44,7 +44,7 @@ body{
                 &::after{
                     content: 'BPM';
                     position: absolute;
-                    font-size: 300px;
+                    font-size: 350px;
                     z-index: -1;
                     color: $darkerPurple;
                 }
@@ -61,7 +61,7 @@ body{
             align-items: center;
             #header{
                 color: $darkerYellow;
-                font-size: 45px;
+                font-size: 60px;
                 user-select: none;
             }
             #weirdSlider{
@@ -70,6 +70,34 @@ body{
                 width: 100%;
                 height: 30%;
                 background: $darkerPurple;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    body{
+        #App{
+            flex-direction: column;
+            #left{
+                width: 100%;
+                height: 30%;
+                #inputWrap{
+                    #inputTempoBox{
+                        font-size: 100px;
+                    }
+                    &::after{
+                        font-size: 120px;
+                    }
+                }
+            }
+            #right{
+                border: solid red;
+                width: 100%;
+                height: 70%;
+                #header{
+                    font-size: 30px;
+                }
             }
         }
     }

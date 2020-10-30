@@ -19,9 +19,31 @@ const App = () => {
 
         inputTempoBox.value = tempo
 
-        document.body.addEventListener('mousemove', (e)=>{
-            console.log(clicked)
+        if(window.innerWidth <= 1024) {
+            right.addEventListener('click', (e)=>{
+                
+                tempoFromInput = Math.floor(e.clientY / 5) + 1
+                let rightHeight = right.offsetHeight / 5 + 1
+    
+                let forReverse = []
+            
+                for(let i = rightHeight; i > 0; i--){
+                    forReverse.push(i)
+                }
+    
+                reversedTempo = Math.floor(forReverse[tempoFromInput])
+    
+                console.log(tempoFromInput)
 
+                weirdSlider.style.height = (reversedTempo * 5) + 1 + 'px'
+    
+                changeTempo(reversedTempo)
+                inputTempoBox.value = reversedTempo
+
+            })
+        }
+
+        document.body.addEventListener('mousemove', (e)=>{
             if(clicked == true){
                 tempoFromInput = Math.floor(e.clientY / 2) + 1
                 let rightHeight = right.offsetHeight / 2 + 1
