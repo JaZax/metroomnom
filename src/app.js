@@ -15,29 +15,34 @@ const App = () => {
         const left = document.getElementById('left')
         const weirdSlider = document.getElementById('weirdSlider')
 
+        let rightHeight
         let tempoFromInput
         let reversedTempo
         let clicked = false
 
         inputTempoBox.value = tempo
 
+        function handleInput(){
+            let forReverse = []
+                    
+            for(let i = rightHeight; i > 0; i--){
+                forReverse.push(i)
+            }
+            
+            reversedTempo = Math.floor(forReverse[tempoFromInput])
+            
+            weirdSlider.style.height = (reversedTempo * 2) + 1 + 'px'
+            
+            changeTempo(reversedTempo)
+            inputTempoBox.value = reversedTempo
+        }
+
         document.body.addEventListener('mousemove', (e)=>{
             if(clicked == true){
                 tempoFromInput = Math.floor(e.clientY / 2) + 1
-                let rightHeight = right.offsetHeight / 2 + 1
-    
-                let forReverse = []
-            
-                for(let i = rightHeight; i > 0; i--){
-                    forReverse.push(i)
-                }
-    
-                reversedTempo = Math.floor(forReverse[tempoFromInput])
-    
-                weirdSlider.style.height = (reversedTempo * 2) + 1 + 'px'
-    
-                changeTempo(reversedTempo)
-                inputTempoBox.value = reversedTempo
+                rightHeight = right.offsetHeight / 2 + 1
+
+                handleInput()
             }
         })
 
@@ -45,28 +50,14 @@ const App = () => {
             clicked = true
             if(window.innerHeight <= 1024){
                 tempoFromInput = Math.floor((e.clientY - left.offsetHeight) / 2) + 1
-                let rightHeight = right.offsetHeight / 2 + 1
+                rightHeight = right.offsetHeight / 2 + 1
 
-                let forReverse = []
-            
-                for(let i = rightHeight; i > 0; i--){
-                    forReverse.push(i)
-                }
-
-                reversedTempo = Math.floor(forReverse[tempoFromInput])
-    
-                weirdSlider.style.height = (reversedTempo * 2) + 1 + 'px'
-    
-                changeTempo(reversedTempo)
-                inputTempoBox.value = reversedTempo
+                handleInput()
             }
         })
 
-        right.addEventListener('mouseup', ()=>{
-            clicked = false
-        })
+        right.addEventListener('mouseup', ()=> clicked = false)
        
-
         inputTempoBox.addEventListener('input', ()=>{
             if(inputTempoBox.value > 0){
                 changeTempo(inputTempoBox.value)
@@ -96,3 +87,4 @@ const App = () => {
 }
 
 ReactDOM.render(<App />, document.getElementById('App'))
+
