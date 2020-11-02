@@ -48,9 +48,14 @@ const App = () => {
 
         right.addEventListener('mousedown', (e)=>{
             clicked = true
+            rightHeight = right.offsetHeight / 2 + 1
+
             if(window.innerHeight <= 1024){
                 tempoFromInput = Math.floor((e.clientY - left.offsetHeight) / 2) + 1
-                rightHeight = right.offsetHeight / 2 + 1
+
+                handleInput()
+            }else{
+                tempoFromInput = Math.floor(e.clientY / 2) + 1
 
                 handleInput()
             }
